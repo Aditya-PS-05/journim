@@ -4,3 +4,15 @@
   font-family: 'Neigh';
   src: url('/fonts/Neigh.otf');
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
