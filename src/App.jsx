@@ -6,7 +6,7 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-black">
+    <div className="relative w-screen h-screen bg-black">
       {/* Background Image */}
       <img 
         src="/home-bg.svg" 
