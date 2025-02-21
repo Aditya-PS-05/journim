@@ -10,6 +10,15 @@ const CityPlanner = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [showTripModal, setShowTripModal] = useState(false);
+  const [tripDetails, setTripDetails] = useState({
+    name: '',
+    startDate: '',
+    endDate: '',
+    adults: '',
+    children: '',
+    travelWith: '' // 'solo', 'friends', or 'family'
+  });
 
   const cityPlaces = citiesData[cityId.toLowerCase()]?.places || [];
 
@@ -49,11 +58,11 @@ const CityPlanner = () => {
   };
 
   return (
-    <div className="min-h-screen" style={{
-        backgroundImage: "url('/images/planning/white_bg.svg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}>
+    <div className="min-h-screen relative" style={{
+      backgroundImage: "url('/images/planning/white_bg.svg')",
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}>
       <Navbar isLight={true} />
       
       <div className="container mx-auto px-4 py-8">
@@ -88,12 +97,12 @@ const CityPlanner = () => {
             </h1>
             
             {/* Categories */}
-            <div className="grid grid-cols-3 gap-4 font-['CrimsonText'] text-2xl">
+            <div className="grid grid-cols-3 gap-4 font-['CrimsonText'] text-2xl relative z-0">
               <button className="bg-gradient-to-r from-[#149A9A] to-[#2ADB87] text-black px-6 py-3 rounded-2xl">
                 Temple
               </button>
               <button className="relative bg-white text-black px-6 py-3 rounded-2xl before:absolute before:inset-[-1px] before:rounded-2xl before:bg-gradient-to-r before:from-[#006B78] before:via-[#006B78] before:via-37% before:to-[#2ADB87] after:absolute after:inset-[1px] after:bg-white after:rounded-2xl">
-                <span className="relative z-10">Historical Sites</span>
+                <span className="relative z-[1]">Historical Sites</span>
               </button>
               <button className="relative bg-white text-black px-6 py-3 rounded-2xl before:absolute before:inset-[-1px] before:rounded-2xl before:bg-gradient-to-r before:from-[#006B78] before:via-[#006B78] before:via-37% before:to-[#2ADB87] after:absolute after:inset-[1px] after:bg-white after:rounded-2xl">
                 <span className="relative z-10">Temple</span>
@@ -168,13 +177,117 @@ const CityPlanner = () => {
 
             {/* Plan Button */}
             <div className="flex justify-center mt-8">
-              <button className="bg-[#1BC8FF] text-black px-12 py-4 rounded-full hover:bg-[#00916E] hover:text-white transition-colors flex items-center gap-2 font-medium text-2xl">
+              <button 
+                onClick={() => setShowTripModal(true)}
+                className="bg-[#1BC8FF] text-black px-12 py-4 rounded-full hover:bg-[#00916E] hover:text-white transition-colors flex items-center gap-2 font-medium text-2xl"
+              >
                 Let's plan your itenary
                 <img src="/images/common/arrow-right.svg" alt="arrow" className="w-6 h-6" />
               </button>
             </div>
           </div>
         </div>
+
+        {/* Floating Trip Modal */}
+        {showTripModal && (
+          <>
+            <div className="fixed inset-0 bg-blue-900/30 backdrop-blur-sm z-40"></div>
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40%] bg-white rounded-tl-[300px] p-16 border-2 shadow-2xl z-50">
+              {/* Close Button */}
+              <button 
+                onClick={() => setShowTripModal(false)}
+                className="absolute top-8 right-8"
+              >
+                <img src="/images/common/close.svg" alt="close" className="w-8 h-8" />
+              </button>
+
+              <h2 className="text-5xl font-['CrimsonText'] text-center mb-12 italic">Create a Trip</h2>
+
+              {/* Trip Form */}
+              <div className="space-y-8">
+                {/* Trip Name */}
+                <div>
+                  <h3 className="text-2xl font-['CrimsonText'] mb-2">Trip Name</h3>
+                  <input 
+                    type="text"
+                    placeholder="Eg. Chilly vac in Shimla"
+                    className="w-full border border-black rounded-md px-4 py-2 focus:outline text-gray-500"
+                  />
+                </div>
+
+                {/* Dates and Duration */}
+                <div className="flex items-end gap-4">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-['CrimsonText'] mb-2">Dates</h3>
+                    <div className="flex items-center gap-2">
+                      <div className="relative flex-1">
+                        <input type="date" className="w-full border border-black rounded-md px-4 py-2 appearance-none focus:outline-none" />
+                      </div>
+                      <span className="text-xl">to</span>
+                      <div className="relative flex-1">
+                        <input type="date" className="w-full border border-black rounded-md px-4 py-2 appearance-none focus:outline-none" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-1/4">
+                    <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Days</h3>
+                    <input type="number" className="w-full border border-black rounded-md px-4 py-2 focus:outline-none text-black" readOnly />
+                  </div>
+                </div>
+
+                {/* People Count */}
+                <div className="grid grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Adults</h3>
+                    <input 
+                      type="number"
+                      min="1"
+                      placeholder="Enter number"
+                      className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Children</h3>
+                    <input 
+                      type="number"
+                      min="0"
+                      placeholder="Enter number"
+                      className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                {/* Who's Coming */}
+                <div>
+                  <h3 className="text-2xl font-['CrimsonText'] mb-4">Who's Coming with you?</h3>
+                  <div className="grid grid-cols-3 gap-4">
+                    {[
+                      { id: 'solo', label: 'Solo', icon: '/images/common/solo.svg' },
+                      { id: 'friends', label: 'Friends/\nPartners', icon: '/images/common/group_people.svg' },
+                      { id: 'family', label: 'Family', icon: '/images/common/family.svg' }
+                    ].map(option => (
+                      <button
+                        key={option.id}
+                        className="p-4 border border-gray-300 rounded-lg flex flex-col items-center gap-2"
+                      >
+                        <img src={option.icon} alt={option.icon} className="text-3xl" />
+                        <span className="text-center whitespace-pre-line">{option.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Let's Plan Button */}
+                <div className="flex justify-center mt-8">
+                  <button className="flex items-center gap-2 text-3xl">
+                    Let's Plan
+                    <span className="transform rotate-[-45deg]">➜</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
