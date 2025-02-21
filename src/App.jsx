@@ -3,10 +3,13 @@ import HomePage from './components/HomePage'
 import SearchDestination from './components/SearchDestination'
 import './App.css'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import MeetFounders from './components/MeetFounders'
+import Services from './components/Services'
 
 function App() {
   return (
-    <div className="relative w-screen h-screen bg-black">
+    <div className="min-h-screen bg-black relative">
       {/* Background Image */}
       <img 
         src="/home-bg.svg" 
@@ -16,11 +19,17 @@ function App() {
       />
       
       {/* Content */}
-      <div className="relative z-10 h-full">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/searchdestination" element={<SearchDestination />} />
-        </Routes>
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/searchdestination" element={<SearchDestination />} />
+            <Route path="/founders" element={<MeetFounders />} />
+            <Route path="/services" element={<Services />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </div>
   )
