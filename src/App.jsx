@@ -2,10 +2,11 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import SearchDestination from './components/SearchDestination'
 import './App.css'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
 import MeetFounders from './components/MeetFounders'
 import Services from './components/Services'
+import Planning from './components/Planning'
+import StateDetails from './components/StateDetails'
+import CityPlanner from './components/CityPlanner'
 
 function App() {
   return (
@@ -20,16 +21,17 @@ function App() {
       
       {/* Content */}
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/searchdestination" element={<SearchDestination />} />
             <Route path="/founders" element={<MeetFounders />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/planning" element={<Planning />} />
+            <Route path="/state/:stateId" element={<StateDetails />} />
+            <Route path="/city-planner/:stateId/:cityId" element={<CityPlanner />} />
           </Routes>
         </main>
-        <Footer />
       </div>
     </div>
   )

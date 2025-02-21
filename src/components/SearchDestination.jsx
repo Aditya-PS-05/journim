@@ -15,7 +15,7 @@ const SearchDestination = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-[#001233]">
       {/* Navbar */}
-      <Navbar />
+      <Navbar isLight={false}/>
 
       {/* Main Content */}
       <div className="min-h-[calc(100vh-80px)] flex items-center justify-center">

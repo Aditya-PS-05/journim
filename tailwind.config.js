@@ -8,6 +8,7 @@ export default {
       extend: {
         fontFamily: {
           'neight': ['Neight', 'sans-serif'],
+          'crimson': ['CrimsonText', 'sans-serif'],
         },
       },
     },

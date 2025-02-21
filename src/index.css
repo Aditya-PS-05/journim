@@ -5,6 +5,11 @@
   src: url('/fonts/Neigh.otf');
 }
 
+@font-face {
+  font-family: 'CrimsonText';
+  src: url('/fonts/CrimsonText-SemiBold.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   padding: 0;
