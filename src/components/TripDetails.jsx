@@ -62,7 +62,7 @@ const TripDetails = () => {
           {days.map((day) => (
             <div 
               key={day.day} 
-              className="bg-gradient-to-b from-emerald-400 via-emerald-300 to-cyan-300 p-8 shadow-xl relative h-[600px]"
+              className="bg-gradient-to-b from-emerald-400 via-emerald-300 to-cyan-300 p-8 relative h-[600px] shadow-lg"
               style={{
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.2)',
               }}

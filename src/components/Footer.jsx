@@ -27,11 +27,11 @@ const Footer = () => {
               <h2 className="text-white text-3xl mb-6">Contact Us</h2>
               <div className="space-y-2">
                 <div className="text-white text-2xl font-light">
-                  <span className="inline-block w-24">Aman</span>
+                  <span className="inline-block w-50">Aman Gupta</span>
                   <span>+91 8744899900</span>
                 </div>
                 <div className="text-white text-2xl font-light">
-                  <span className="inline-block w-24">Sahil</span>
+                  <span className="inline-block w-50">Sahil Birda</span>
                   <span>+91 99883 96729</span>
                 </div>
               </div>

@@ -4,14 +4,14 @@ import Navbar from './Navbar';
 const MeetFounders = () => {
   const founders = [
     {
-      name: "Aman",
+      name: "Aman Gupta",
       role: "CEO",
       subtitle: "Co-Founder",
       phone: "+91 8744899900",
       image: "/images/meetFounders/aman_pic.svg"
     },
     {
-      name: "Sahil",
+      name: "Sahil Birda",
       role: "COO",
       subtitle: "Co-Founder",
       phone: "+91 99883 96729",
@@ -26,7 +26,7 @@ const MeetFounders = () => {
         <div className="container mx-auto px-4">
           {/* Title */}
           <h1 className="text-center text-[#00FFD1] text-7xl sm:text-7xl mb-20 font-medium">
-            Meet the Founders
+            Meet the Team
           </h1>
 
           {/* Founders Grid */}
