@@ -7,6 +7,8 @@ import Services from './components/Services'
 import Planning from './components/Planning'
 import StateDetails from './components/StateDetails'
 import CityPlanner from './components/CityPlanner'
+import TripItinerary from './components/TripItinerary'
+import TripDetails from './components/TripDetails'
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
             <Route path="/planning" element={<Planning />} />
             <Route path="/state/:stateId" element={<StateDetails />} />
             <Route path="/city-planner/:stateId/:cityId" element={<CityPlanner />} />
+            <Route path="/trip-itinerary" element={<TripItinerary />} />
+            <Route path="/trip-details" element={<TripDetails />} />
           </Routes>
         </main>
       </div>

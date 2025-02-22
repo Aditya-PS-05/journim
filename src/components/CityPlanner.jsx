@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Navbar from './Navbar';
 import { citiesData } from '../../utils/cities';
@@ -55,6 +55,12 @@ const CityPlanner = () => {
 
   const handleRemovePlace = (place) => {
     setSelectedPlaces(selectedPlaces.filter(p => p !== place));
+  };
+
+  const navigate = useNavigate();
+
+  const handlePlanClick = () => {
+    navigate('/trip-itinerary');
   };
 
   return (
@@ -156,7 +162,7 @@ const CityPlanner = () => {
 
             {/* Places Added Section */}
             <div>
-              <h3 className="text-2xl font-['CrimsonText'] mb-4">Places added</h3>
+              <h3 className="text-2xl font-['CrimsonText'] mb-4 text-center">Places added</h3>
               <div className="flex flex-wrap gap-3">
                 {selectedPlaces.map((place, index) => (
                   <div 
@@ -179,7 +185,7 @@ const CityPlanner = () => {
             <div className="flex justify-center mt-8">
               <button 
                 onClick={() => setShowTripModal(true)}
-                className="bg-[#1BC8FF] text-black px-12 py-4 rounded-full hover:bg-[#00916E] hover:text-white transition-colors flex items-center gap-2 font-medium text-2xl"
+                className="bg-[#1BC8FF] text-black px-12 py-4 rounded-full hover:bg-[#00916E] hover:text-white transition-colors flex items-center gap-2 font-medium text-2xl hover:cursor-pointer"
               >
                 Let's plan your itenary
                 <img src="/images/common/arrow-right.svg" alt="arrow" className="w-6 h-6" />
@@ -192,97 +198,105 @@ const CityPlanner = () => {
         {showTripModal && (
           <>
             <div className="fixed inset-0 bg-blue-900/30 backdrop-blur-sm z-40"></div>
-            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40%] bg-white rounded-tl-[300px] p-16 border-2 shadow-2xl z-50">
-              {/* Close Button */}
-              <button 
-                onClick={() => setShowTripModal(false)}
-                className="absolute top-8 right-8"
-              >
-                <img src="/images/common/close.svg" alt="close" className="w-8 h-8" />
-              </button>
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40%] z-50">
+              {/* Black curved background */}
+              <div className="absolute w-[300px] h-[300px] bg-black border-none -z-10"></div>
+              {/* White modal */}
+              <div className="bg-white rounded-tl-[300px] p-16 border-2">
+                {/* Close Button */}
+                <button 
+                  onClick={() => setShowTripModal(false)}
+                  className="absolute top-8 right-8"
+                >
+                  <img src="/images/common/close.svg" alt="close" className="w-8 h-8 hover:cursor-pointer" />
+                </button>
 
-              <h2 className="text-5xl font-['CrimsonText'] text-center mb-12 italic">Create a Trip</h2>
+                <h2 className="text-5xl font-['CrimsonText'] text-center mb-12 italic">Create a Trip</h2>
 
-              {/* Trip Form */}
-              <div className="space-y-8">
-                {/* Trip Name */}
-                <div>
-                  <h3 className="text-2xl font-['CrimsonText'] mb-2">Trip Name</h3>
-                  <input 
-                    type="text"
-                    placeholder="Eg. Chilly vac in Shimla"
-                    className="w-full border border-black rounded-md px-4 py-2 focus:outline text-gray-500"
-                  />
-                </div>
+                {/* Trip Form */}
+                <div className="space-y-8">
+                  {/* Trip Name */}
+                  <div>
+                    <h3 className="text-2xl font-['CrimsonText'] mb-2">Trip Name</h3>
+                    <input 
+                      type="text"
+                      placeholder="Eg. Chilly vac in Shimla"
+                      className="w-full border border-black rounded-md px-4 py-2 focus:outline text-gray-500"
+                    />
+                  </div>
 
-                {/* Dates and Duration */}
-                <div className="flex items-end gap-4">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-['CrimsonText'] mb-2">Dates</h3>
-                    <div className="flex items-center gap-2">
-                      <div className="relative flex-1">
-                        <input type="date" className="w-full border border-black rounded-md px-4 py-2 appearance-none focus:outline-none" />
-                      </div>
-                      <span className="text-xl">to</span>
-                      <div className="relative flex-1">
-                        <input type="date" className="w-full border border-black rounded-md px-4 py-2 appearance-none focus:outline-none" />
+                  {/* Dates and Duration */}
+                  <div className="flex items-end gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-['CrimsonText'] mb-2">Dates</h3>
+                      <div className="flex items-center gap-2">
+                        <div className="relative flex-1">
+                          <input type="date" className="w-full border border-black rounded-md px-4 py-2 appearance-none focus:outline-none" />
+                        </div>
+                        <span className="text-xl">to</span>
+                        <div className="relative flex-1">
+                          <input type="date" className="w-full border border-black rounded-md px-4 py-2 appearance-none focus:outline-none" />
+                        </div>
                       </div>
                     </div>
+                    <div className="w-1/4">
+                      <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Days</h3>
+                      <input type="number" className="w-full border border-black rounded-md px-4 py-2 focus:outline-none text-black" readOnly />
+                    </div>
                   </div>
-                  <div className="w-1/4">
-                    <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Days</h3>
-                    <input type="number" className="w-full border border-black rounded-md px-4 py-2 focus:outline-none text-black" readOnly />
-                  </div>
-                </div>
 
-                {/* People Count */}
-                <div className="grid grid-cols-2 gap-8">
+                  {/* People Count */}
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Adults</h3>
+                      <input 
+                        type="number"
+                        min="1"
+                        placeholder="Enter number"
+                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Children</h3>
+                      <input 
+                        type="number"
+                        min="0"
+                        placeholder="Enter number"
+                        className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Who's Coming */}
                   <div>
-                    <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Adults</h3>
-                    <input 
-                      type="number"
-                      min="1"
-                      placeholder="Enter number"
-                      className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none"
-                    />
+                    <h3 className="text-2xl font-['CrimsonText'] mb-4">Who's Coming with you?</h3>
+                    <div className="grid grid-cols-3 gap-4">
+                      {[
+                        { id: 'solo', label: 'Solo', icon: '/images/common/solo.svg' },
+                        { id: 'friends', label: 'Friends/\nPartners', icon: '/images/common/group_people.svg' },
+                        { id: 'family', label: 'Family', icon: '/images/common/family.svg' }
+                      ].map(option => (
+                        <button
+                          key={option.id}
+                          className="p-4 border border-gray-300 rounded-lg flex flex-col items-center gap-2"
+                        >
+                          <img src={option.icon} alt={option.icon} className="text-3xl" />
+                          <span className="text-center whitespace-pre-line">{option.label}</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-['CrimsonText'] mb-2">No. of Children</h3>
-                    <input 
-                      type="number"
-                      min="0"
-                      placeholder="Enter number"
-                      className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none"
-                    />
-                  </div>
-                </div>
 
-                {/* Who's Coming */}
-                <div>
-                  <h3 className="text-2xl font-['CrimsonText'] mb-4">Who's Coming with you?</h3>
-                  <div className="grid grid-cols-3 gap-4">
-                    {[
-                      { id: 'solo', label: 'Solo', icon: '/images/common/solo.svg' },
-                      { id: 'friends', label: 'Friends/\nPartners', icon: '/images/common/group_people.svg' },
-                      { id: 'family', label: 'Family', icon: '/images/common/family.svg' }
-                    ].map(option => (
-                      <button
-                        key={option.id}
-                        className="p-4 border border-gray-300 rounded-lg flex flex-col items-center gap-2"
-                      >
-                        <img src={option.icon} alt={option.icon} className="text-3xl" />
-                        <span className="text-center whitespace-pre-line">{option.label}</span>
-                      </button>
-                    ))}
+                  {/* Let's Plan Button */}
+                  <div className="flex justify-center mt-8">
+                    <button 
+                      onClick={handlePlanClick}
+                      className="flex items-center gap-2 text-3xl"
+                    >
+                      Let's Plan
+                      <span className="transform rotate-[-45deg]">➜</span>
+                    </button>
                   </div>
-                </div>
-
-                {/* Let's Plan Button */}
-                <div className="flex justify-center mt-8">
-                  <button className="flex items-center gap-2 text-3xl">
-                    Let's Plan
-                    <span className="transform rotate-[-45deg]">➜</span>
-                  </button>
                 </div>
               </div>
             </div>
