@@ -19,13 +19,13 @@ const Services = () => {
           <div className="flex flex-col md:flex-row items-start gap-16 md:gap-32 max-w-8xl mx-auto">
             {/* Left Side - Our Services */}
             <div className="md:w-1/3">
-              <h2 className="text-[#00FFD1] text-6xl sm:text-7xl font-medium text-center md:text-left mt-8">
+              <h2 className="text-[#00FFD1] text-6xl sm:text-7xl font-medium text-center md:text-center mt-8">
                 Our<br />Services
               </h2>
             </div>
 
             {/* Vertical Line Separator */}
-            <div className="hidden md:block w-[2px] h-96 bg-white/20 mx-4"></div>
+            <div className="hidden md:block w-[2px] h-80 bg-white/20 mx-4"></div>
 
             {/* Right Side - Description */}
             <div className="md:w-2/3">

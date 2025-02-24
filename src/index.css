@@ -21,3 +21,15 @@ body {
   padding: 0;
   width: 100vw;
 }
+
+.map-container svg path {
+  transition: fill 0.3s ease; /* Smooth transition for color changes */
+}
+
+.map-container svg path.selected {
+  fill: #00916E; /* Color for the selected state */
+}
+
+.map-container svg path.unselected {
+  fill: transparent; /* Make unselected states transparent */
+}
