@@ -189,7 +189,7 @@ const StateDetails = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
         <Link to="/planning" className="inline-flex items-center text-black mb-8">
-          <img src="/images/states/himachalpradesh/arrow_left.svg" alt="arrow" className="w-12 h-12 mx-6" />
+          <img src="/images/states/himachalpradesh/arrow_left.svg" alt="arrow" className="w-12 h-12 mx-6" loading="lazy" />
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -206,6 +206,7 @@ const StateDetails = () => {
                 src={stateInfo.image}
                 alt={stateInfo.name}
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
             </div>
 
@@ -256,7 +257,7 @@ const StateDetails = () => {
                   className="bg-[#1BC8FF] text-black px-6 py-2 rounded-full hover:bg-[#00916E] hover:text-white transition-colors flex items-center gap-2"
                 >
                   Plan Trip
-                  <img src="/images/planning/arrow_left.svg" alt="arrow" className="w-4 h-4" />
+                  <img src="/images/planning/arrow_left.svg" alt="arrow" className="w-4 h-4" loading="lazy" />
                 </button>
               </div>
             </div>

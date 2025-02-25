@@ -441,7 +441,7 @@ const CityPlanner = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
         <Link to={`/state/${stateId}`} className="inline-flex items-center">
-          <img src="/images/states/himachalpradesh/arrow_left.svg" alt="Back" className="w-8 h-8" />
+          <img src="/images/states/himachalpradesh/arrow_left.svg" alt="Back" className="w-8 h-8" loading="lazy" />
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
@@ -492,7 +492,7 @@ const CityPlanner = () => {
                   className="w-full px-12 py-3 rounded-lg bg-gray-100 border-2 border-[#00916E] focus:outline-none"
                 />
                 <span className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                  <img src="/images/states/search.svg" alt="search" className="w-5 h-5" />
+                  <img src="/images/states/search.svg" alt="search" className="w-5 h-5" loading="lazy" />
                 </span>
                 
                 {/* Search Results Dropdown */}
@@ -527,7 +527,7 @@ const CityPlanner = () => {
                       onClick={() => handleRemovePlace(place)}
                       className="ml-2"
                     >
-                      <img src="/images/states/remove.svg" alt="remove" className="w-4 h-4" />
+                      <img src="/images/states/remove.svg" alt="remove" className="w-4 h-4" loading="lazy" />
                     </button>
                   </div>
                 ))}
@@ -541,7 +541,7 @@ const CityPlanner = () => {
                 className="bg-[#1BC8FF] text-black px-12 py-4 rounded-full hover:bg-[#00916E] hover:text-white transition-colors flex items-center gap-2 font-medium text-2xl hover:cursor-pointer"
               >
                 Let's plan your itenary
-                <img src="/images/common/arrow-right.svg" alt="arrow" className="w-6 h-6" />
+                <img src="/images/common/arrow-right.svg" alt="arrow" className="w-6 h-6" loading="lazy" />
               </button>
             </div>
           </div>
@@ -561,7 +561,7 @@ const CityPlanner = () => {
                   onClick={() => setShowTripModal(false)}
                   className="absolute top-8 right-8"
                 >
-                  <img src="/images/common/close.svg" alt="close" className="w-8 h-8 hover:cursor-pointer" />
+                  <img src="/images/common/close.svg" alt="close" className="w-8 h-8 hover:cursor-pointer" loading="lazy" />
                 </button>
 
                 <h2 className="text-5xl font-['CrimsonText'] text-center mb-12 italic">Create a Trip</h2>
@@ -633,7 +633,7 @@ const CityPlanner = () => {
                           key={option.id}
                           className="p-4 border border-gray-300 rounded-lg flex flex-col items-center gap-2"
                         >
-                          <img src={option.icon} alt={option.icon} className="text-3xl" />
+                          <img src={option.icon} alt={option.icon} className="text-3xl" loading="lazy" />
                           <span className="text-center whitespace-pre-line">{option.label}</span>
                         </button>
                       ))}

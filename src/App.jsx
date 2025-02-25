@@ -19,6 +19,7 @@ function App() {
         alt="" 
         className="fixed inset-0 w-full h-full object-cover"
         aria-hidden="true"
+        loading='lazy'
       />
       
       {/* Content */}

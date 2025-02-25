@@ -11,12 +11,12 @@ const LightNavbar = () => {
       {/* Right Navigation Items */}
       <div className="flex items-center gap-8">
         <div className="flex items-center text-black">
-          <img src="/images/navbar/black_mytrips.svg" alt="My Trips" className="w-6 h-6 mr-2" />
+          <img src="/images/navbar/black_mytrips.svg" alt="My Trips" className="w-6 h-6 mr-2" loading="lazy" />
           My Trips
         </div>
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full flex items-center justify-center">
-            <img src="/images/navbar/black_login.svg" alt="My Trips" className="w-6 h-6 mr-2" />
+            <img src="/images/navbar/black_login.svg" alt="My Trips" className="w-6 h-6 mr-2" loading="lazy" />
           </div>
           <button className="bg-black text-white px-6 py-2 rounded-full ">
             Log In / Sign Up

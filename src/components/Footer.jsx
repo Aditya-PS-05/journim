@@ -46,6 +46,7 @@ const Footer = () => {
             alt="" 
             className="w-full"
             aria-hidden="true"
+            loading="lazy"
           />
         </div>
 
@@ -61,6 +62,7 @@ const Footer = () => {
                 src={social.icon} 
                 alt="social media" 
                 className="w-6 h-6"
+                loading="lazy"
               />
             </a>
           ))}

@@ -43,6 +43,7 @@ const MeetFounders = () => {
                         src={founder.image}
                         alt={founder.name}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                     <h2 className="text-3xl sm:text-5xl mt-4 font-medium text-white text-center">

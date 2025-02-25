@@ -28,7 +28,7 @@ const TripItinerary = () => {
       <div className="container mx-auto px-4 py-8 w-[90%]">
         {/* Back Button */}
         <Link to="/city-planner" className="inline-flex items-center mb-8">
-          <img src="/images/common/arrow-right.svg" alt="Back" className="w-16 h-16 rotate-180" />
+          <img src="/images/common/arrow-right.svg" alt="Back" className="w-16 h-16 rotate-180" loading="lazy" />
         </Link>
 
         <div className="flex w-full">
@@ -39,6 +39,7 @@ const TripItinerary = () => {
                 src="/images/states/iternarary.svg" 
                 alt="Shimla Map"
                 className="w-[100%]"
+                loading="lazy"
               />
             </div>
           </div>

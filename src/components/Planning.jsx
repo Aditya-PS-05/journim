@@ -89,7 +89,7 @@ const Planning = () => {
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-['CrimsonText'] font-medium text-black text-center">
                 Choose a state to start your <span className="text-[#00916E]">planning</span>
               </h1>
-              <img src="/images/planning/separator.svg" alt="" className="w-full" aria-hidden="true" />
+              <img src="/images/planning/separator.svg" alt="" className="w-full" aria-hidden="true" loading="lazy" />
               <div className="space-y-4">
               <h2 className="text-3xl font-['CrimsonText'] text-center">Want some suggestions?</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -108,7 +108,7 @@ const Planning = () => {
                   <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="w-full flex items-center justify-between border border-[#00916E] rounded-lg px-4 py-2 bg-white">
                     {selectedState || 'Select a state'}
-                    <img src="/images/planning/arrow_down.svg" alt="arrow" className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                    <img src="/images/planning/arrow_down.svg" alt="arrow" className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} loading="lazy" />
                   </button>
                   {isDropdownOpen && (
                     <div className="absolute top-full left-0 w-full mt-2 bg-white border border-[#00916E] rounded-lg shadow-lg z-30">
@@ -127,7 +127,7 @@ const Planning = () => {
                 }}
                   className="bg-[#1BC8FF] text-black px-10 py-2 rounded-full hover:bg-[#00916E] hover:text-white transition-colors flex items-center gap-2 mx-auto">
                   Explore
-                  <img src="/images/planning/arrow_left.svg" alt="arrow" className="w-4 h-4 transition-transform" />
+                  <img src="/images/planning/arrow_left.svg" alt="arrow" className="w-4 h-4 transition-transform" loading="lazy" />
                 </button>
               </div>
             </div>

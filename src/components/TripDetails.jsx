@@ -92,7 +92,7 @@ const TripDetails = () => {
                     
                     {/* Dropdown Arrow */}
                     <button className="text-xl">
-                      <img src="/images/common/listdown.svg" alt="View" className="w-6 h-6" />
+                      <img src="/images/common/listdown.svg" alt="View" className="w-6 h-6" loading="lazy" />
                     </button>
                   </div>
                 ))}
@@ -115,7 +115,7 @@ const TripDetails = () => {
                   {/* Button content */}
                   <div className="relative flex justify-center items-center pb-6">
                     <button className="text-2xl font-serif flex flex-col items-center gap-1">
-                      <img src="/images/common/arrow-right.svg" alt="View" className="w-6 h-6 transform rotate-[-90deg]" />
+                      <img src="/images/common/arrow-right.svg" alt="View" className="w-6 h-6 transform rotate-[-90deg]" loading="lazy" />
                       View
                     </button>
                   </div>
