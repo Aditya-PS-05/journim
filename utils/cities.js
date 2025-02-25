@@ -5,7 +5,7 @@ export const citiesData = {
       "Jakhu Temple",
       "Mahu Nag Temple",
       "Kali Bari Temple",
-      "Hatu Mata temple",
+      "Hatu Mata Temple",
       "Shiv Mandir",
       "Bhim Kali Temple",
       "The Ridge",
