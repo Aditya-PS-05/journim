@@ -9,6 +9,8 @@ import StateDetails from './components/StateDetails'
 import CityPlanner from './components/CityPlanner'
 import TripItinerary from './components/TripItinerary'
 import TripDetails from './components/TripDetails'
+import HotelBooking from './components/HotelBooking'
+import RideBooking from './components/RideBooking'
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
             <Route path="/city-planner/:stateId/:cityId" element={<CityPlanner />} />
             <Route path="/trip-itinerary" element={<TripItinerary />} />
             <Route path="/trip-details" element={<TripDetails />} />
+            <Route path="/hotel_booking" element={<HotelBooking />} />
+            <Route path="/ride_booking" element={<RideBooking />} />
           </Routes>
         </main>
       </div>
