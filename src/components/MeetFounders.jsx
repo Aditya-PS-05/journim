@@ -1,12 +1,9 @@
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-
 const MeetFounders = () => {
   const founders = [
     {
-      name: "Aman Gupta",
+      name: "Aman Gopal",
       role: "CEO",
-      subtitle: "Co-Founder",
+      subtitle: "Founder",
       phone: "+91 8744899900",
       image: "/images/meetFounders/aman_pic.svg"
     },
@@ -53,7 +50,7 @@ const MeetFounders = () => {
 
                   {/* Role and Subtitle */}
                   <div className="text-left">
-                    <p className="text-2xl sm:text-3xl text-[#00FFD1] font-light">{founder.role}</p>
+                    <p className="text-2xl sm:text-3xl text-white font-medium">{founder.role}</p>
                     <p className="text-xl sm:text-2xl text-gray-400 font-light">{founder.subtitle}</p>
                   </div>
                 </div>

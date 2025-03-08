@@ -11,6 +11,7 @@ import TripItinerary from './components/TripItinerary'
 import TripDetails from './components/TripDetails'
 import HotelBooking from './components/HotelBooking'
 import RideBooking from './components/RideBooking'
+import Dashboard from './components/Dashboard'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path='/dashboard' element={<Dashboard />} />
             <Route path="/searchdestination" element={<SearchDestination />} />
             <Route path="/founders" element={<MeetFounders />} />
             <Route path="/services" element={<Services />} />

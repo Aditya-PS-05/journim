@@ -220,7 +220,7 @@ const HomePage = () => {
               {/* Buttons - Mobile responsive */}
               <div className="flex flex-col gap-4 sm:gap-8 z-20 w-full md:w-auto">
                 <Link
-                  to="/searchdestination"
+                  to="/planning" 
                   className="group bg-gradient-to-r from-[#1BC8FF] via-[#1BC8FF] to-[#2ADB87] bg-[length:100%_100%] bg-position-x-75 px-6 sm:px-12 py-4 sm:py-6 rounded-2xl text-black text-2xl sm:text-4xl font-['Neight'] flex items-center justify-center md:justify-start gap-4 hover:opacity-90 transition-opacity cursor-pointer"
                 >
                   Let&apos;s Trip
@@ -239,7 +239,7 @@ const HomePage = () => {
                   </svg>
                 </Link>
 
-                <Link to="/planning" className="group bg-gradient-to-r from-[#1BC8FF] via-[#1BC8FF] to-[#2ADB87] bg-[length:100%_100%] bg-position-x-75 px-6 sm:px-12 py-4 sm:py-6 rounded-2xl text-black text-2xl sm:text-4xl font-['Neight'] flex items-center justify-center md:justify-start gap-4 hover:opacity-90 transition-opacity cursor-pointer">
+                <Link to="/searchdestination" className="group bg-gradient-to-r from-[#1BC8FF] via-[#1BC8FF] to-[#2ADB87] bg-[length:100%_100%] bg-position-x-75 px-6 sm:px-12 py-4 sm:py-6 rounded-2xl text-black text-2xl sm:text-4xl font-['Neight'] flex items-center justify-center md:justify-start gap-4 hover:opacity-90 transition-opacity cursor-pointer">
                   Let&apos;s Book
                   <svg
                     className="w-8 h-8 transform group-hover:translate-x-1 transition-transform"
